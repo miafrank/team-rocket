@@ -19,7 +19,7 @@ public class Person {
 
     private String lastName;
 
-    private LocalDate birthdate;
+    private int age;
 
     private Gender gender;
 
@@ -27,7 +27,7 @@ public class Person {
     private int location;
 
     @ManyToMany
-    private List<BodyPart> bodyParts = new ArrayList<>();
+    private List<HealthTrait> healthTraits = new ArrayList<>();
 
 //    Getters and setters
 
@@ -59,20 +59,20 @@ public class Person {
         this.gender = gender;
     }
 
-    public List<BodyPart> getBodyParts() {
-        return bodyParts;
+    public List<HealthTrait> getHealthTraits() {
+        return healthTraits;
     }
 
-    public void setBodyParts(List<BodyPart> bodyParts) {
-        this.bodyParts = bodyParts;
+    public void setHealthTraits(List<HealthTrait> healthTraits) {
+        this.healthTraits = healthTraits;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public int getAge() {
+        return age;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getLocation() {

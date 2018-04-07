@@ -13,33 +13,11 @@ public class PhysicalScore {
     @GeneratedValue
     private int id;
 
-    private LocalDate physicalScoreDate;
-
-    private LocalTime physicalScoreTime;
-
     private int score;
 
 //    Getters and setters
-
-
     public int getId() {
         return id;
-    }
-
-    public LocalDate getPhysicalScoreDate() {
-        return physicalScoreDate;
-    }
-
-    public void setPhysicalScoreDate(LocalDate physicalScoreDate) {
-        this.physicalScoreDate = physicalScoreDate;
-    }
-
-    public LocalTime getPhysicalScoreTime() {
-        return physicalScoreTime;
-    }
-
-    public void setPhysicalScoreTime(LocalTime physicalScoreTime) {
-        this.physicalScoreTime = physicalScoreTime;
     }
 
     public int getScore() {
