@@ -13,9 +13,6 @@ public class HealthTrait {
 
     private String name;
 
-    @ManyToOne
-    private BodyPart bodyPart;
-
     @OneToMany
     private List<EmotionalScore> emotionalScores = new ArrayList<>();
 
@@ -37,14 +34,6 @@ public class HealthTrait {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public BodyPart getBodyPart() {
-        return bodyPart;
-    }
-
-    public void setBodyPart(BodyPart bodyPart) {
-        this.bodyPart = bodyPart;
     }
 
     public List<EmotionalScore> getEmotionalScores() {
