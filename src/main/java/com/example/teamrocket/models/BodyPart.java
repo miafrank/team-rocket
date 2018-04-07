@@ -14,6 +14,7 @@ public class BodyPart {
     private String name;
 
     @OneToMany
+    @JoinColumn(name="health_id")
     private List<HealthTrait> healthTraits = new ArrayList<>();
 
 //    Getters and setters
@@ -41,4 +42,8 @@ public class BodyPart {
     //    Default constructor
     public BodyPart() {}
 
+    public BodyPart(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

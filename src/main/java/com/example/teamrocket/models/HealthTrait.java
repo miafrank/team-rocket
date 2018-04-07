@@ -73,4 +73,6 @@ public class HealthTrait {
 
     //    Default constructor
     public HealthTrait() {}
+
+
 }
