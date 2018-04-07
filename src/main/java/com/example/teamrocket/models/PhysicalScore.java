@@ -9,8 +9,8 @@ import java.time.LocalTime;
 @Entity
 public class PhysicalScore {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private LocalDate physicalScoreDate;

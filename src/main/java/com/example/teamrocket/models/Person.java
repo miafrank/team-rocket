@@ -11,8 +11,8 @@ import java.util.List;
 @Entity
 public class Person {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private String firstName;

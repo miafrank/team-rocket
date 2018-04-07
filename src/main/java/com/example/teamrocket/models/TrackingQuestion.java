@@ -7,8 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class TrackingQuestion {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private String questionStatement;

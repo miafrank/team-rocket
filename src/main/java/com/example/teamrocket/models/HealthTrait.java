@@ -7,8 +7,8 @@ import java.util.List;
 @Entity
 public class HealthTrait {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private String name;

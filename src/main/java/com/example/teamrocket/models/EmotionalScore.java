@@ -9,8 +9,8 @@ import java.time.LocalTime;
 @Entity
 public class EmotionalScore {
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private LocalDate emotionalScoreDate;
