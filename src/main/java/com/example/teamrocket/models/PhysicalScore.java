@@ -3,6 +3,8 @@ package com.example.teamrocket.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 public class PhysicalScore {
@@ -11,15 +13,43 @@ public class PhysicalScore {
     @Id
     private int id;
 
-    //TODO figure out time stamp
+    private LocalDate physicalScoreDate;
 
-    //TODO figure out date stamp
+    private LocalTime physicalScoreTime;
 
     private int score;
 
 //    Getters and setters
-    //TODO add getters and setters
 
-//    Default Constructor
+
+    public int getId() {
+        return id;
+    }
+
+    public LocalDate getPhysicalScoreDate() {
+        return physicalScoreDate;
+    }
+
+    public void setPhysicalScoreDate(LocalDate physicalScoreDate) {
+        this.physicalScoreDate = physicalScoreDate;
+    }
+
+    public LocalTime getPhysicalScoreTime() {
+        return physicalScoreTime;
+    }
+
+    public void setPhysicalScoreTime(LocalTime physicalScoreTime) {
+        this.physicalScoreTime = physicalScoreTime;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    //    Default Constructor
     public PhysicalScore() {}
 }

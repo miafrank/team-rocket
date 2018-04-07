@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +19,12 @@ public class Person {
 
     private String lastName;
 
-    //TODO figure out age
+    private LocalDate birthdate;
 
     private Gender gender;
 
-    //TODO figure out location
+    //Zip code
+    private int location;
 
     @ManyToMany
     private List<BodyPart> bodyParts = new ArrayList<>();
@@ -63,6 +65,22 @@ public class Person {
 
     public void setBodyParts(List<BodyPart> bodyParts) {
         this.bodyParts = bodyParts;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
     }
 
     //    Default constructor

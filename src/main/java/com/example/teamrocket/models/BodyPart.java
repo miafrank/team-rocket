@@ -18,9 +18,29 @@ public class BodyPart {
     private List<HealthTrait> healthTraits = new ArrayList<>();
 
 //    Getters and setters
-    //TODO add getters and setters
 
-//    Default constructor
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<HealthTrait> getHealthTraits() {
+        return healthTraits;
+    }
+
+    public void setHealthTraits(List<HealthTrait> healthTraits) {
+        this.healthTraits = healthTraits;
+    }
+
+    //    Default constructor
     public BodyPart() {}
 
 }
