@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface HealthTraitDao extends CrudRepository<Integer, HealthTrait>{
+public interface HealthTraitDao extends CrudRepository<HealthTrait, Integer>{
 }
