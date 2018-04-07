@@ -6,5 +6,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface QuestionDao extends CrudRepository<TrackingQuestion, Integer> {
+public interface TrackingQuestionDao extends CrudRepository<TrackingQuestion, Integer> {
 }
