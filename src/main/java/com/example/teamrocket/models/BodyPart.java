@@ -1,6 +1,9 @@
 package com.example.teamrocket.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +17,9 @@ public class BodyPart {
     private String name;
 
     @OneToMany
-    @JoinColumn(name="health_id")
-    private List<HealthTrait> healthTraits = new ArrayList<>();
+    private List<HealthTrait> healthTraitList = new ArrayList<>();
 
 //    Getters and setters
-
     public int getId() {
         return id;
     }
@@ -31,19 +32,14 @@ public class BodyPart {
         this.name = name;
     }
 
-    public List<HealthTrait> getHealthTraits() {
-        return healthTraits;
+    public List<HealthTrait> getHealthTraitList() {
+        return healthTraitList;
     }
 
-    public void setHealthTraits(List<HealthTrait> healthTraits) {
-        this.healthTraits = healthTraits;
+    public void setHealthTraitList(List<HealthTrait> healthTraitList) {
+        this.healthTraitList = healthTraitList;
     }
 
     //    Default constructor
-    public BodyPart() {}
-
-    public BodyPart(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    public BodyPart() {};
 }

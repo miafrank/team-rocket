@@ -13,10 +13,6 @@ public class EmotionalScore {
     @GeneratedValue
     private int id;
 
-    private LocalDate emotionalScoreDate;
-
-    private LocalTime emotionalScoreTime;
-
     private int score;
 
 //    Getters and setters
@@ -24,22 +20,6 @@ public class EmotionalScore {
 
     public int getId() {
         return id;
-    }
-
-    public LocalDate getEmotionalScoreDate() {
-        return emotionalScoreDate;
-    }
-
-    public void setEmotionalScoreDate(LocalDate emotionalScoreDate) {
-        this.emotionalScoreDate = emotionalScoreDate;
-    }
-
-    public LocalTime getEmotionalScoreTime() {
-        return emotionalScoreTime;
-    }
-
-    public void setEmotionalScoreTime(LocalTime emotionalScoreTime) {
-        this.emotionalScoreTime = emotionalScoreTime;
     }
 
     public int getScore() {
