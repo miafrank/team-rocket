@@ -24,7 +24,6 @@ public class Person {
     private Gender gender;
 
     //Zip code
-
     private int location;
 
     @ManyToMany
