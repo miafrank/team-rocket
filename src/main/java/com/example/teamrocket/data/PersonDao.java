@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface PersonDao extends CrudRepository<Integer, Person>{
+public interface PersonDao extends CrudRepository<Person, Integer>{
 }

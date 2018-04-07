@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface PhysicalScoreDao extends CrudRepository<Integer, PhysicalScore>{
+public interface PhysicalScoreDao extends CrudRepository<PhysicalScore, Integer>{
 }

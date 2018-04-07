@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Transactional
 @Repository
-public interface BodyPartDao extends CrudRepository<Integer, BodyPart>{
+public interface BodyPartDao extends CrudRepository<BodyPart, Integer>{
 }

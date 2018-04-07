@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface EmotionalScoreDao extends CrudRepository<Integer, EmotionalScore>{
+public interface EmotionalScoreDao extends CrudRepository<EmotionalScore, Integer>{
 }
