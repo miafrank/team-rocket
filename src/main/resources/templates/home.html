@@ -9,8 +9,17 @@
                    th:text="${healthTrait.name}"
                    th:value="${healthTrait.id}" />
         </div>
-
         <input type="submit" name="Submit" />
     </form>
+
+    <form>
+        <div th:each="headHealthTrait : ${headHealthTraits}">
+            <input type="checkbox"
+                   name="headHealthTraitId"
+                   th:text="${headHealthTrait.name}"
+                   th:value="${headHealthTrait.id}" />
+        </div>
+    </form>
+
 </body>
 </html>
