@@ -5,7 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-    <style>
+	<style>
         #to-show {
             position:relative;
             display: none;
@@ -32,41 +32,26 @@
 
 <form th:object="${person}" method="post">
 <img  th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
-<map th:name="ladymap">
-    <div id="to-hover">
-        <area  th:shape="rect" coords="0, 299, 400, 0" href="head.htm" />
+<div id="to-hover">
+	<map th:name="ladymap" >
+        <area  th:shape="rect" coords="0, 299, 400, 0" href="head.htm" alt=""/>
         <div id="to-show" th:each="headHealthTrait : ${headHealthTraits}">
             <input type="checkbox" name="headHealthTraitId"
                    th:text="${headHealthTrait.name}"
                    th:value="${headHealthTrait.id}" />
         </div>
-        <
-
-    </div>
-</map>
+	</map>
+</div>
 </form>
 
-
-
-<!--<form th:object="${person}" method="post">-->
-<!--<div th:each="healthTrait : ${healthTraits}">-->
-
-<!--<input type="checkbox" name="healthTraitId"-->
-<!--th:text="${healthTrait.name}"-->
-<!--th:value="${healthTrait.id}" />-->
-<!--</div>-->
-<!--<input type="submit" name="Submit" />
-    </
-/>-->
-<!--</form>
-    <!-- <div data-bind="with:trackingMessage">
+    <div data-bind="with:trackingMessage">
     	<P data-bind="text: questionStatement"></P>
     	<div data-bind="foreach:options">
     		<a href="#" data-bind="text:$data"></a>
     	</div>
     </div>
-    <button class="btn btn-outline-info" data-bind="click: $root.askAQuestion">Get a Question</button> -->
-  
+    <button class="btn btn-outline-info" data-bind="click: $root.askAQuestion">Get a Question</button>
+
 <script src="js/libs/knockout-3.4.2.js"></script>
 <script src="js/libs/jquery-3.2.1.min.js"></script>
 <script>
@@ -84,7 +69,5 @@ function AppViewModel(){
 
 ko.applyBindings(new AppViewModel());
 </script>
->-->
-
 </body>
 </html>
