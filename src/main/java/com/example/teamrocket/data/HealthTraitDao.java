@@ -13,4 +13,6 @@ import java.util.List;
 public interface HealthTraitDao extends CrudRepository<HealthTrait, Integer>{
 
     List<HealthTrait> findByBodyPart(BodyPart bodyPart);
+
+    HealthTrait findByName(String name);
 }

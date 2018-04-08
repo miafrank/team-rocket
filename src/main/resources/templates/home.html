@@ -46,17 +46,18 @@
 	<div class="col-6">
 		<div class="well" data-bind="with:trackingMessage">
 			<h3 class="card-title" data-bind="text:questionStatement"></h3>
-			<div >
-				
-				<a><img id="emoji1" height="60" width="60" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/thumbs-up-emoji-transparent-background-3.png"/></a>
-				<a><img id="emoji2" height="60" width="30" src="https://i.pinimg.com/736x/f0/6f/2b/f06f2be65cb8fd6f3c6901752a5efa3c--symbols-emoticons-emoji-emoticons.jpg" /></a>
-				<a><img id="emoji3" height="60" width="60" src="https://i.pinimg.com/736x/e6/3a/ff/e63aff20aa042bf7f5f8c1b802841423--emoji-faces-smiley-faces.jpg" /></a>
-			
+			<div>
+				<form method="post" action="/trackingAnswer" >
+                    <input type="image" name="trackingQAnswerid" value="1" src="thumbsup.png" alt="submit" height="60" width="60"/>
+                </form>
 			</div>
 		</div>
 	</div>
 </div>
 </div>
+
+<!--<a><img id="emoji2" height="60" width="30" src="https://i.pinimg.com/736x/f0/6f/2b/f06f2be65cb8fd6f3c6901752a5efa3c&#45;&#45;symbols-emoticons-emoji-emoticons.jpg" /></a>-->
+<!--<a><img id="emoji3" height="60" width="60" src="https://i.pinimg.com/736x/e6/3a/ff/e63aff20aa042bf7f5f8c1b802841423&#45;&#45;emoji-faces-smiley-faces.jpg" /></a>-->
 
 <script src="js/libs/knockout-3.4.2.js"></script>
 <script src="js/libs/jquery-3.2.1.min.js"></script>

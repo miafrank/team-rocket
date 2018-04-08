@@ -71,6 +71,10 @@ public class HealthTrait {
         this.bodyPart = bodyPart;
     }
 
+    public void addPhysicalScore(PhysicalScore physicalScore) {
+        physicalScores.add(physicalScore);
+    }
+
     //    Default constructor
     public HealthTrait() {}
 
