@@ -2,8 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head></head>
 <body class="container">
-<h1>Default Title</h1>
+<h1 th:title="${title}"></h1>
+    <form th:object="${person}" method="post">
+        <div th:each="healthTrait : ${healthTraits}">
+            <input type="checkbox" name="healthTraitId"
+                   th:text="${healthTrait.name}"
+                   th:value="${healthTrait.id}" />
+        </div>
 
-
+        <input type="submit" name="Submit" />
+    </form>
 </body>
 </html>
