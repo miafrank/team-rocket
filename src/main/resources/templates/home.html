@@ -18,5 +18,14 @@
     <map th:name="ladymap">
     </map>
 
+    <form>
+        <div th:each="headHealthTrait : ${headHealthTraits}">
+            <input type="checkbox"
+                   name="headHealthTraitId"
+                   th:text="${headHealthTrait.name}"
+                   th:value="${headHealthTrait.id}" />
+        </div>
+    </form>
+
 </body>
 </html>

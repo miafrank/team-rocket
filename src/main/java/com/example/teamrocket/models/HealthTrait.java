@@ -13,6 +13,9 @@ public class HealthTrait {
 
     private String name;
 
+    @ManyToOne
+    private BodyPart bodyPart;
+
     @OneToMany
     private List<EmotionalScore> emotionalScores = new ArrayList<>();
 
@@ -58,6 +61,14 @@ public class HealthTrait {
 
     public void setTrackingQuestions(List<TrackingQuestion> trackingQuestions) {
         this.trackingQuestions = trackingQuestions;
+    }
+
+    public BodyPart getBodyPart() {
+        return bodyPart;
+    }
+
+    public void setBodyPart(BodyPart bodyPart) {
+        this.bodyPart = bodyPart;
     }
 
     //    Default constructor
