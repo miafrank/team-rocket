@@ -29,7 +29,7 @@ public class HomeController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String humanForm(Model model) {
         BodyPart head = bodyPartDao.findByName("Head");
-        model.addAttribute("title", "What's going on today?");
+        model.addAttribute("title", "Hey girl, What's going on today?");
         model.addAttribute("healthTraits", healthTraitsDao.findAll());
         model.addAttribute("headHealthTraits", healthTraitsDao.findByBodyPart(head));
         return "home";

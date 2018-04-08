@@ -29,4 +29,10 @@ public class TrackingQuestionController {
         TrackingQuestion trackingQuestion = trackingQuestionDao.findOne(1);
         return trackingQuestion;
     }
+    @RequestMapping(value = "submitTrackingQuestion", method = RequestMethod.POST)
+    public void processATrackingQuestion( TrackingQuestion trackingQuestion ) {
+    	TrackingQuestion changetrackingQuestion = trackingQuestionDao.findOne(trackingQuestion.getId());
+    	changetrackingQuestion.setAnswer(trackingQuestion.getAnswer());
+    	trackingQuestionDao.save(changetrackingQuestion);
+    }
 }

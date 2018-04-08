@@ -14,39 +14,49 @@
             display: block;
         }
         #headHealthTrait{
-        	display: none;
+        	/* display: none; */
         }
     </style>
 </head>
-<body class="container">
-<img th:src="Header.svg" />
-<h1 th:text="${title}"></h1>
-<h3>(Click on a body part!)</h3>
-
-<div id="headHealthTrait">
-    <form th:object="${person}" method="post">
-        <div  th:each="headHealthTrait : ${headHealthTraits}">
-            <input type="checkbox"
-                   name="HealthTraitId"
-                   th:text="${headHealthTrait.name}"
-                   th:value="${headHealthTrait.id}" />
-        </div>
-        <input type="submit" value="Submit" />
-    </form>
+<body>
+<div class="container-fluid">
+	<img th:src="Header.svg" />
+	<h1 th:text="${title}"></h1>
+	<h3>(Click on a body part!)</h3>
+	<div class="row">
+		<div class="col-4">
+			<img th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
+			<map th:name="ladymap">
+			    <area th:shape="rect" coords="0, 199, 300, 0" data-toggle="collapse" data-target="#headHealthTrait"  /> 
+			</map>
+		</div>
+		<div class="col-2">
+			<div class="collapse" id="headHealthTrait">
+			    <form th:object="${person}" method="post">
+			        <div  th:each="headHealthTrait : ${headHealthTraits}">
+			            <input type="checkbox"
+			                   name="HealthTraitId"
+			                   th:text="${headHealthTrait.name}"
+			                   th:value="${headHealthTrait.id}" />
+			        </div>
+			        <input type="submit" value="Submit" />
+			    </form>
+			</div>
+		</div>
+	<div class="col-6">
+		<div class="well" data-bind="with:trackingMessage">
+			<h3 class="card-title" data-bind="text:questionStatement"></h3>
+			<div >
+				
+				<a><img id="emoji1" height="60" width="60" src="http://backgroundcheckall.com/wp-content/uploads/2017/12/thumbs-up-emoji-transparent-background-3.png"/></a>
+				<a><img id="emoji2" height="60" width="30" src="https://i.pinimg.com/736x/f0/6f/2b/f06f2be65cb8fd6f3c6901752a5efa3c--symbols-emoticons-emoji-emoticons.jpg" /></a>
+				<a><img id="emoji3" height="60" width="60" src="https://i.pinimg.com/736x/e6/3a/ff/e63aff20aa042bf7f5f8c1b802841423--emoji-faces-smiley-faces.jpg" /></a>
+			
+			</div>
+		</div>
+	</div>
 </div>
-
-<img  th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
-<map th:name="ladymap">
-    <area  th:shape="rect" coords="0, 299, 400, 0" onclick="headHealthTrait();" />
-</map>
-
-    <div data-bind="with:trackingMessage">
-    	<P data-bind="text: questionStatement"></P>
-    	<div data-bind="foreach:options">
-    		<a href="#" data-bind="text:$data"></a>
-    	</div>
-    </div>
-    <button class="btn btn-outline-info" data-bind="click: $root.askAQuestion">Get a Question</button>
+</div>
 
 <script src="js/libs/knockout-3.4.2.js"></script>
 <script src="js/libs/jquery-3.2.1.min.js"></script>
@@ -57,13 +67,50 @@ function AppViewModel(){
 	self.trackingMessage = ko.observable();
 	self.options = ['Cool Glasses', 'Meh', 'Cry Face', ];
 	//behaviors
-	self.askAQuestion = function() {
-		$.getJSON('/Tracking-Question/getTrackingQuestion', {} , self.trackingMessage );
-		$('[data-toggle="popover"]').popover();
-	};
+	
 }
+var appViewModel = new AppViewModel()
+ko.applyBindings(appViewModel);
 
-ko.applyBindings(new AppViewModel());
+
+
+
+$(document).ready(function() {
+	var timer = setInterval(function(){ askAQuestion() }, 7000);;
+	
+	function startTracking() {
+	    setInterval(function(){ askAQuestion() }, 7000);
+	} 
+	function askAQuestion(){
+		$.getJSON('/Tracking-Question/getTrackingQuestion', {} , appViewModel.trackingMessage );
+		clearInterval(timer);
+	}
+	function answerAQuestion(emojivalue){		
+		/* $.post( '/Tracking-Question/submitTrackingQuestion'); */
+		appViewModel.trackingMessage.answer = emojivalue;
+		var trackingmessage = appViewModel.trackingMessage()
+		$.toJSON(trackingmessage);
+		console.log("hey");
+		$.ajax({
+			  type: "POST",
+			  url: "/Tracking-Question/submitTrackingQuestion",
+			data: trackingmessage
+			});
+		startTracking()
+	}
+	$("a").click(function(event){
+	    event.preventDefault();
+	});
+	
+	$('#emoji1').click(function(){ answerAQuestion(1); return false; });
+	$('#emoji2').click(function(){ answerAQuestion(2); return false; });
+	$('#emoji3').click(function(){ answerAQuestion(3); return false; });
+	
+	
+
+	
+});
+
 </script>
 <script type="text/javascript">
     function headHealthTrait(){
@@ -74,6 +121,7 @@ ko.applyBindings(new AppViewModel());
             x.style.display = "none";
         }
     }
+    
 </script>
 </body>
 </html>
