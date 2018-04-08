@@ -29,22 +29,17 @@ public class HomeController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String humanForm(Model model) {
         BodyPart head = bodyPartDao.findByName("Head");
-        BodyPart chest = bodyPartDao.findByName("Chest");
-        BodyPart stomach = bodyPartDao.findByName("Stomach");
-        BodyPart leg = bodyPartDao.findByName("Leg");
-        model.addAttribute("title", "Add to my Health");
+        model.addAttribute("title", "What's going on today?");
         model.addAttribute("healthTraits", healthTraitsDao.findAll());
         model.addAttribute("headHealthTraits", healthTraitsDao.findByBodyPart(head));
-        model.addAttribute("chestHealthTraits", healthTraitsDao.findByBodyPart(chest));
-        model.addAttribute("stomachHealthTraits", healthTraitsDao.findByBodyPart(stomach));
-        model.addAttribute("legHealthTraits", healthTraitsDao.findByBodyPart(leg));
         return "home";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String processHumanForm(Model model, @RequestParam int healthTraitId) {
+    public String processHumanForm(Model model, @RequestParam int HealthTraitId) {
+
         Person person = personDao.findByFirstNameIs("Mia");
-        HealthTrait healthTrait = healthTraitsDao.findOne(healthTraitId);
+        HealthTrait healthTrait = healthTraitsDao.findOne(HealthTraitId);
         person.addHealthTrait(healthTrait);
         personDao.save(person);
         return "redirect:/";

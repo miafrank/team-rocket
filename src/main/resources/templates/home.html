@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-	<style>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
         #to-show {
             position:relative;
             display: none;
@@ -13,36 +13,32 @@
         #to-hover:hover #to-show {
             display: block;
         }
-        img {
-            position:absolute;
-            z-index: -1;
-        }
-        div {
-            position:absolute;
+        #headHealthTrait{
+        	display: none;
         }
     </style>
-</script>
 </head>
 <body class="container">
+<img th:src="Header.svg" />
+<h1 th:text="${title}"></h1>
+<h3>(Click on a body part!)</h3>
 
-<!--TODO wtf is happening with the title-->
-<h1 th:title="${title}"></h1>
-    
-
-
-<form th:object="${person}" method="post">
-<img  th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
-<div id="to-hover">
-	<map th:name="ladymap" >
-        <area  th:shape="rect" coords="0, 299, 400, 0" href="head.htm" alt=""/>
-        <div id="to-show" th:each="headHealthTrait : ${headHealthTraits}">
-            <input type="checkbox" name="headHealthTraitId"
+<div id="headHealthTrait">
+    <form th:object="${person}" method="post">
+        <div  th:each="headHealthTrait : ${headHealthTraits}">
+            <input type="checkbox"
+                   name="HealthTraitId"
                    th:text="${headHealthTrait.name}"
                    th:value="${headHealthTrait.id}" />
         </div>
-	</map>
+        <input type="submit" value="Submit" />
+    </form>
 </div>
-</form>
+
+<img  th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
+<map th:name="ladymap">
+    <area  th:shape="rect" coords="0, 299, 400, 0" onclick="headHealthTrait();" />
+</map>
 
     <div data-bind="with:trackingMessage">
     	<P data-bind="text: questionStatement"></P>
@@ -68,6 +64,16 @@ function AppViewModel(){
 }
 
 ko.applyBindings(new AppViewModel());
+</script>
+<script type="text/javascript">
+    function headHealthTrait(){
+        var x = document.getElementById("headHealthTrait");
+        if (x.style.display == "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>
