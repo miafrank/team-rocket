@@ -7,5 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface PersonDao extends CrudRepository<Person, Integer>{
+public interface PersonDao extends CrudRepository<Person, Integer> {
+
+    Person findByFirstNameIs(String name);
 }

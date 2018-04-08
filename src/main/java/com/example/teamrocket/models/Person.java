@@ -83,6 +83,10 @@ public class Person {
         this.location = location;
     }
 
+    public void addHealthTrait(HealthTrait healthTrait) {
+        healthTraits.add(healthTrait);
+    }
+
     //    Default constructor
     public Person() {}
 }
