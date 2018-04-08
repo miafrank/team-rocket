@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
+    <style>
+        #to-show {
+            position:relative;
+            display: none;
+        }
+        #to-hover:hover #to-show {
+            display: block;
+        }
+        img {
+            position:absolute;
+            z-index: -1;
+        }
+        div {
+            position:absolute;
+        }
+    </style>
 </head>
 <body class="container">
+
+<!--TODO wtf is happening with the title-->
 <h1 th:title="${title}"></h1>
-    <form th:object="${person}" method="post">
-        <div th:each="healthTrait : ${healthTraits}">
 
-            <input type="checkbox" name="healthTraitId"
-                   th:text="${healthTrait.name}"
-                   th:value="${healthTrait.id}" />
-        </div>
-        <input type="submit" name="Submit" />
-    </form>
-
+<form th:object="${person}" method="post">
 <img  th:src="Lady-03.svg" usemap="#ladymap" width="331px" height="653px"/>
-    <map th:name="ladymap">
-    </map>
-
-    <form>
-        <div th:each="headHealthTrait : ${headHealthTraits}">
+<map th:name="ladymap">
+    <div id="to-hover">
+        <area  th:shape="rect" coords="0, 299, 400, 0" href="head.htm" />
+        <div id="to-show" th:each="headHealthTrait : ${headHealthTraits}">
             <input type="checkbox"
                    name="headHealthTraitId"
                    th:text="${headHealthTrait.name}"
                    th:value="${headHealthTrait.id}" />
         </div>
-    </form>
+    </div>
+</map>
+</form>
+
+
+
+<!--<form th:object="${person}" method="post">-->
+<!--<div th:each="healthTrait : ${healthTraits}">-->
+
+<!--<input type="checkbox" name="healthTraitId"-->
+<!--th:text="${healthTrait.name}"-->
+<!--th:value="${healthTrait.id}" />-->
+<!--</div>-->
+<!--<input type="submit" name="Submit" />-->
+<!--</form>-->
 
 </body>
 </html>
